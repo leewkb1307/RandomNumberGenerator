@@ -88,5 +88,12 @@
                 android:layout_weight="1" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/buttonClipboardCopy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onButtonClipboardCopyClick"
+            android:text="@string/clipboard_copy" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

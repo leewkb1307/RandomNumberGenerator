@@ -4,4 +4,5 @@
     <string name="maximum">Maximum</string>
     <string name="generate">Generate</string>
     <string name="generated">Generated</string>
+    <string name="clipboard_copy">Copy to clipboard</string>
 </resources>

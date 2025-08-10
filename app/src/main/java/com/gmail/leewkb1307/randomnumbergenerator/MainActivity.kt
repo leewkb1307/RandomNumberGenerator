@@ -1,5 +1,9 @@
 package com.gmail.leewkb1307.randomnumbergenerator
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -61,5 +65,26 @@ class MainActivity : AppCompatActivity() {
 
     fun onButtonGenerateClick(view: View) {
         generateRandom()
+    }
+
+    fun onButtonClipboardCopyClick(view: View) {
+        val textRandomOutput: TextView = findViewById(R.id.textRandomView)
+        val textRandom = textRandomOutput.text.toString()
+        var randInt = -1
+        try {
+            randInt = textRandom.toInt()
+        } catch (_: NumberFormatException) {
+        }
+
+        if (randInt >= 0) {
+            val clipboard: ClipboardManager =
+                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("Numeric string", textRandom)
+            clipboard.setPrimaryClip(clip);
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2)
+                Toast.makeText(this, "Copied", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Nothing to copy!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
