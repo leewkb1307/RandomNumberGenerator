@@ -1,6 +1,7 @@
 package com.gmail.leewkb1307.randomnumbergenerator
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +17,9 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val minNumberInput: EditText = findViewById(R.id.editNumberMin)
+        minNumberInput.setText("0")
+        val maxNumberInput: EditText = findViewById(R.id.editNumberMax)
+        maxNumberInput.setText("999999")
     }
 }
