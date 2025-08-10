@@ -25,11 +25,13 @@
 
             <EditText
                 android:id="@+id/editNumberMin"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
+                android:importantForAutofill="no"
                 android:labelFor="@id/viewNumberMin"
+                android:hint="@string/minimum"
                 android:minHeight="48dp"
                 android:singleLine="true" />
         </LinearLayout>
@@ -47,18 +49,20 @@
 
             <EditText
                 android:id="@+id/editNumberMax"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
+                android:importantForAutofill="no"
                 android:labelFor="@id/viewNumberMax"
+                android:hint="@string/maximum"
                 android:minHeight="48dp"
                 android:singleLine="true" />
         </LinearLayout>
 
         <Button
             android:id="@+id/buttonGenerate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onButtonGenerateClick"
             android:text="@string/generate" />
