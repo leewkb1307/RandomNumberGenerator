@@ -3,4 +3,5 @@
     <string name="minimum">Minimum</string>
     <string name="maximum">Maximum</string>
     <string name="generate">Generate</string>
+    <string name="generated">Generated</string>
 </resources>

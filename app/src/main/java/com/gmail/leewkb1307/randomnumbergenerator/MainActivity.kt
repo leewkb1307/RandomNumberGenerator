@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun generateRandom() {
+        var randInt = -1
         val minNumberInput: EditText = findViewById(R.id.editNumberMin)
         val minNumberText = minNumberInput.text.toString()
         val maxNumberInput: EditText = findViewById(R.id.editNumberMax)
@@ -45,12 +46,16 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Invalid number range!", Toast.LENGTH_SHORT).show()
             } else {
                 val rand = SecureRandom.getInstanceStrong()
-                val randInt = minNumberValue + rand.nextInt(maxNumberValue - minNumberValue + 1)
-                val textRandomOutput: TextView = findViewById(R.id.textRandomView)
-                textRandomOutput.text = "Generated: " + randInt
+                randInt = minNumberValue + rand.nextInt(maxNumberValue - minNumberValue + 1)
             }
         } catch (_: NumberFormatException) {
             Toast.makeText(this, "Invalid number input!", Toast.LENGTH_SHORT).show()
+        }
+
+        val textRandomOutput: TextView = findViewById(R.id.textRandomView)
+        textRandomOutput.text = when (randInt >= 0) {
+            true -> randInt.toString()
+            else -> "none"
         }
     }
 
