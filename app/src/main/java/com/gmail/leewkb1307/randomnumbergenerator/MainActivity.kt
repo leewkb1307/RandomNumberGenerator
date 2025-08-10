@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             val clipboard: ClipboardManager =
                 getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("Numeric string", textRandom)
-            clipboard.setPrimaryClip(clip);
+            clipboard.setPrimaryClip(clip)
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2)
                 Toast.makeText(this, "Copied", Toast.LENGTH_SHORT).show()
         } else {
