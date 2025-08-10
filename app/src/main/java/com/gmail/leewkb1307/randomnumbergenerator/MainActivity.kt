@@ -1,6 +1,7 @@
 package com.gmail.leewkb1307.randomnumbergenerator
 
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -51,5 +52,9 @@ class MainActivity : AppCompatActivity() {
         } catch (_: NumberFormatException) {
             Toast.makeText(this, "Invalid number input!", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun onButtonGenerateClick(view: View) {
+        generateRandom()
     }
 }
