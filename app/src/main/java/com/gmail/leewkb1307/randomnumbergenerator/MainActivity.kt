@@ -25,10 +25,25 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        var minNumberValue = sharedPref.getInt(
+            getString(R.string.saved_minimum),
+            DEFAULT_MIN_NUMBER
+        )
+        var maxNumberValue = sharedPref.getInt(
+            getString(R.string.saved_maximum),
+            DEFAULT_MAX_NUMBER
+        )
+        if (minNumberValue < 0 || maxNumberValue < 0 || minNumberValue >= maxNumberValue) {
+            minNumberValue = DEFAULT_MIN_NUMBER
+            maxNumberValue = DEFAULT_MAX_NUMBER
+            Toast.makeText(this, "Defaults restored", Toast.LENGTH_SHORT).show()
+        }
         val minNumberInput: EditText = findViewById(R.id.editNumberMin)
-        minNumberInput.setText("0")
+        minNumberInput.setText(minNumberValue.toString())
         val maxNumberInput: EditText = findViewById(R.id.editNumberMax)
-        maxNumberInput.setText("999999")
+        maxNumberInput.setText(maxNumberValue.toString())
         generateRandom()
     }
 
