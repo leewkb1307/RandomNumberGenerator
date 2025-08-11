@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.security.SecureRandom
@@ -66,6 +67,26 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val rand = SecureRandom.getInstanceStrong()
                 randInt = minNumberValue + rand.nextInt(maxNumberValue - minNumberValue + 1)
+
+                val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+                val minNumberPref = sharedPref.getInt(
+                    getString(R.string.saved_minimum),
+                    DEFAULT_MIN_NUMBER
+                )
+                if (minNumberValue != minNumberPref) {
+                    sharedPref.edit {
+                        putInt(getString(R.string.saved_minimum), minNumberValue)
+                    }
+                }
+                val maxNumberPref = sharedPref.getInt(
+                    getString(R.string.saved_maximum),
+                    DEFAULT_MAX_NUMBER
+                )
+                if (maxNumberValue != maxNumberPref) {
+                    sharedPref.edit {
+                        putInt(getString(R.string.saved_maximum), maxNumberValue)
+                    }
+                }
             }
         } catch (_: NumberFormatException) {
             Toast.makeText(this, "Invalid number input!", Toast.LENGTH_SHORT).show()
