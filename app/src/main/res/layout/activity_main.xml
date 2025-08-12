@@ -21,7 +21,8 @@
                 android:id="@+id/viewNumberMin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/minimum" />
+                android:text="@string/minimum"
+                android:textStyle="italic" />
 
             <EditText
                 android:id="@+id/editNumberMin"
@@ -46,7 +47,8 @@
                 android:id="@+id/viewNumberMax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/maximum" />
+                android:text="@string/maximum"
+                android:textStyle="italic" />
 
             <EditText
                 android:id="@+id/editNumberMax"
@@ -66,8 +68,11 @@
             android:id="@+id/buttonGenerate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginStart="20dp"
             android:onClick="onButtonGenerateClick"
-            android:text="@string/generate" />
+            android:text="@string/generate"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,21 +84,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/generated" />
+                android:text="@string/generated"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/textRandomView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <Button
             android:id="@+id/buttonClipboardCopy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:onClick="onButtonClipboardCopyClick"
-            android:text="@string/clipboard_copy" />
+            android:text="@string/clipboard_copy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
