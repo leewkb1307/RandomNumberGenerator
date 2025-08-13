@@ -87,25 +87,35 @@
                 android:text="@string/generated"
                 android:textStyle="italic" />
 
-            <TextView
-                android:id="@+id/textRandomView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_marginStart="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/buttonClipboardCopy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:onClick="onButtonClipboardCopyClick"
-            android:text="@string/clipboard_copy"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                <TextView
+                    android:id="@+id/textRandomView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/buttonClipboardCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/clipboard_copy"
+                    android:minHeight="48dp"
+                    android:onClick="onButtonClipboardCopyClick"
+                    app:srcCompat="@drawable/ic_content_copy_28" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
