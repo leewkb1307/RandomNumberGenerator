@@ -115,6 +115,17 @@
                     android:minHeight="48dp"
                     android:onClick="onButtonClipboardCopyClick"
                     app:srcCompat="@drawable/ic_content_copy_28" />
+
+                <ImageButton
+                    android:id="@+id/buttonShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/share"
+                    android:minHeight="48dp"
+                    android:onClick="onButtonShareClick"
+                    app:srcCompat="@drawable/ic_share_28" />
             </LinearLayout>
 
         </LinearLayout>

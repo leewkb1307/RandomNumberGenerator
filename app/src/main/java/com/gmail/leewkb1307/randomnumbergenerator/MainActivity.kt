@@ -123,4 +123,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Nothing to copy!", Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun onButtonShareClick(view: View) {
+    }
 }
