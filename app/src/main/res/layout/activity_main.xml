@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/viewNumberMin"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:importantForAccessibility="no"
                 android:text="@string/minimum"
@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/viewNumberMax"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:importantForAccessibility="no"
                 android:text="@string/maximum"
@@ -83,7 +83,7 @@
 
             <TextView
                 android:id="@+id/textGeneratedView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/generated"
