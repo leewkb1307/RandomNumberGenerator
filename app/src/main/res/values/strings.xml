@@ -8,4 +8,9 @@
     <string name="share">Share</string>
     <string name="saved_minimum">SavedMinimumNumber</string>
     <string name="saved_maximum">SavedMaximumNumber</string>
+    <string name="error">Error</string>
+    <string name="bad_minimum">Invalid minimum number!</string>
+    <string name="bad_maximum">Invalid maximum number!</string>
+    <string name="bad_input">Invalid number input!</string>
+    <string name="bad_range">Invalid number range!</string>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.view.ViewCompat
@@ -60,11 +61,11 @@ class MainActivity : AppCompatActivity() {
             val maxNumberValue = maxNumberText.toInt()
 
             if (minNumberValue < 0) {
-                Toast.makeText(this, "Invalid minimum number!", Toast.LENGTH_SHORT).show()
+                errorDialog(R.string.bad_minimum)
             } else if (maxNumberValue < 0) {
-                Toast.makeText(this, "Invalid maximum number!", Toast.LENGTH_SHORT).show()
+                errorDialog(R.string.bad_maximum)
             } else if (minNumberValue >= maxNumberValue) {
-                Toast.makeText(this, "Invalid number range!", Toast.LENGTH_SHORT).show()
+                errorDialog(R.string.bad_range)
             } else {
                 val rand = SecureRandom.getInstanceStrong()
                 randInt = minNumberValue + rand.nextInt(maxNumberValue - minNumberValue + 1)
@@ -90,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } catch (_: NumberFormatException) {
-            Toast.makeText(this, "Invalid number input!", Toast.LENGTH_SHORT).show()
+            errorDialog(R.string.bad_input)
         }
 
         val textRandomOutput: TextView = findViewById(R.id.textRandomView)
@@ -149,5 +150,22 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Nothing to share.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun errorDialog(resId: Int) {
+        errorDialog(getString(resId))
+    }
+
+    private fun errorDialog(msg: String) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder
+            .setTitle(getString(R.string.error))
+            .setMessage(msg)
+            .setPositiveButton(android.R.string.ok) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }
