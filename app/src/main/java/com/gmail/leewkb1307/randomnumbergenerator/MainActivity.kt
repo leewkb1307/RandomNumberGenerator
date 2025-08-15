@@ -3,6 +3,7 @@ package com.gmail.leewkb1307.randomnumbergenerator
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -133,5 +134,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onButtonShareClick(view: View) {
+        val textRandom = getGeneratedNumber()
+
+        if (textRandom.isNotEmpty()) {
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TITLE, "Generated number")
+                putExtra(Intent.EXTRA_TEXT, textRandom)
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
+        } else {
+            Toast.makeText(this, "Nothing to share.", Toast.LENGTH_SHORT).show()
+        }
     }
 }
