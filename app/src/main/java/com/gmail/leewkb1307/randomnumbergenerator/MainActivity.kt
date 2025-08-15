@@ -99,20 +99,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getGeneratedNumber(): String {
+        val textRandomOutput: TextView = findViewById(R.id.textRandomView)
+        var textRandom = textRandomOutput.text.toString()
+        try {
+            if (textRandom.toInt() < 0) {
+                textRandom = ""
+            }
+        } catch (_: NumberFormatException) {
+            textRandom = ""
+        }
+
+        return textRandom
+    }
+
     fun onButtonGenerateClick(view: View) {
         generateRandom()
     }
 
     fun onButtonClipboardCopyClick(view: View) {
-        val textRandomOutput: TextView = findViewById(R.id.textRandomView)
-        val textRandom = textRandomOutput.text.toString()
-        var randInt = -1
-        try {
-            randInt = textRandom.toInt()
-        } catch (_: NumberFormatException) {
-        }
+        val textRandom = getGeneratedNumber()
 
-        if (randInt >= 0) {
+        if (textRandom.isNotEmpty()) {
             val clipboard: ClipboardManager =
                 getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("Numeric string", textRandom)
