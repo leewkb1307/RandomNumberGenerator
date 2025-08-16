@@ -121,6 +121,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onButtonDetailsClick(view: View) {
+        val details = buildString {
+            append(getString(R.string.provider))
+            append(": ")
+            append(rng.provider.toString())
+            append("\n")
+            append(getString(R.string.algorithm))
+            append(": ")
+            append(rng.algorithm.toString())
+        }
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder
+            .setTitle(getString(R.string.generator))
+            .setMessage(details)
+            .setPositiveButton(android.R.string.ok) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     fun onButtonClipboardCopyClick(view: View) {
