@@ -19,6 +19,8 @@ import androidx.core.view.WindowInsetsCompat
 import java.security.SecureRandom
 
 class MainActivity : AppCompatActivity() {
+    private val rng = SecureRandom.getInstanceStrong()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -67,8 +69,7 @@ class MainActivity : AppCompatActivity() {
             } else if (minNumberValue >= maxNumberValue) {
                 errorDialog(R.string.bad_range)
             } else {
-                val rand = SecureRandom.getInstanceStrong()
-                randInt = minNumberValue + rand.nextInt(maxNumberValue - minNumberValue + 1)
+                randInt = minNumberValue + rng.nextInt(maxNumberValue - minNumberValue + 1)
 
                 val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
                 val minNumberPref = sharedPref.getInt(
