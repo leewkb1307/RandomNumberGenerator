@@ -120,6 +120,9 @@ class MainActivity : AppCompatActivity() {
         generateRandom()
     }
 
+    fun onButtonDetailsClick(view: View) {
+    }
+
     fun onButtonClipboardCopyClick(view: View) {
         val textRandom = getGeneratedNumber()
 

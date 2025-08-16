@@ -6,6 +6,7 @@
     <string name="generated">Generated</string>
     <string name="clipboard_copy">Copy to clipboard</string>
     <string name="share">Share</string>
+    <string name="details">Details</string>
     <string name="saved_minimum">SavedMinimumNumber</string>
     <string name="saved_maximum">SavedMaximumNumber</string>
     <string name="error">Error</string>

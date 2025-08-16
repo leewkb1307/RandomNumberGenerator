@@ -66,15 +66,33 @@
                 android:singleLine="true" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonGenerate"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:layout_marginStart="20dp"
-            android:onClick="onButtonGenerateClick"
-            android:text="@string/generate"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonGenerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="20dp"
+                android:onClick="onButtonGenerateClick"
+                android:text="@string/generate"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <ImageButton
+                android:id="@+id/buttonDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/details"
+                android:minHeight="48dp"
+                android:onClick="onButtonDetailsClick"
+                app:srcCompat="@drawable/ic_details_28" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
