@@ -82,16 +82,32 @@
                 android:text="@string/generate"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <ImageButton
-                android:id="@+id/buttonDetails"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
-                android:contentDescription="@string/details"
-                android:minHeight="48dp"
-                android:onClick="onButtonDetailsClick"
-                app:srcCompat="@drawable/ic_details_28" />
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/details"
+                    android:minHeight="48dp"
+                    android:onClick="onButtonDetailsClick"
+                    app:srcCompat="@drawable/ic_details_28" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no"
+                    android:text="@string/details"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -123,27 +139,58 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textStyle="bold" />
 
-                <ImageButton
-                    android:id="@+id/buttonClipboardCopy"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:contentDescription="@string/clipboard_copy"
-                    android:minHeight="48dp"
-                    android:onClick="onButtonClipboardCopyClick"
-                    app:srcCompat="@drawable/ic_content_copy_28" />
+                    android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/buttonShare"
+                    <ImageButton
+                        android:id="@+id/buttonClipboardCopy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/clipboard_copy"
+                        android:minHeight="48dp"
+                        android:onClick="onButtonClipboardCopyClick"
+                        app:srcCompat="@drawable/ic_content_copy_28" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:importantForAccessibility="no"
+                        android:text="@string/copy_content"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
-                    android:contentDescription="@string/share"
-                    android:minHeight="48dp"
-                    android:onClick="onButtonShareClick"
-                    app:srcCompat="@drawable/ic_share_28" />
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/buttonShare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/share"
+                        android:minHeight="48dp"
+                        android:onClick="onButtonShareClick"
+                        app:srcCompat="@drawable/ic_share_28" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:importantForAccessibility="no"
+                        android:text="@string/share"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
