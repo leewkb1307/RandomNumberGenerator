@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -31,15 +32,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-        var minNumberValue = sharedPref.getInt(
-            getString(R.string.saved_minimum),
-            DEFAULT_MIN_NUMBER
-        )
-        var maxNumberValue = sharedPref.getInt(
-            getString(R.string.saved_maximum),
-            DEFAULT_MAX_NUMBER
-        )
+        val randRange = getRandomRangePref()
+        var minNumberValue = randRange.min
+        var maxNumberValue = randRange.max
         if (minNumberValue < 0 || maxNumberValue < 0 || minNumberValue >= maxNumberValue) {
             minNumberValue = DEFAULT_MIN_NUMBER
             maxNumberValue = DEFAULT_MAX_NUMBER
@@ -71,21 +66,14 @@ class MainActivity : AppCompatActivity() {
             } else {
                 randInt = minNumberValue + rng.nextInt(maxNumberValue - minNumberValue + 1)
 
-                val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-                val minNumberPref = sharedPref.getInt(
-                    getString(R.string.saved_minimum),
-                    DEFAULT_MIN_NUMBER
-                )
-                if (minNumberValue != minNumberPref) {
+                val sharedPref = getSharedPref()
+                val randRange = getRandomRangePref(sharedPref)
+                if (minNumberValue != randRange.min) {
                     sharedPref.edit {
                         putInt(getString(R.string.saved_minimum), minNumberValue)
                     }
                 }
-                val maxNumberPref = sharedPref.getInt(
-                    getString(R.string.saved_maximum),
-                    DEFAULT_MAX_NUMBER
-                )
-                if (maxNumberValue != maxNumberPref) {
+                if (maxNumberValue != randRange.max) {
                     sharedPref.edit {
                         putInt(getString(R.string.saved_maximum), maxNumberValue)
                     }
@@ -100,6 +88,27 @@ class MainActivity : AppCompatActivity() {
             true -> randInt.toString()
             else -> "none"
         }
+    }
+
+    private fun getSharedPref(): SharedPreferences {
+        return this.getPreferences(MODE_PRIVATE)
+    }
+
+    private fun getRandomRangePref(): RandomRange {
+        return getRandomRangePref(getSharedPref())
+    }
+
+    private fun getRandomRangePref(sharedPref: SharedPreferences): RandomRange {
+        val minNumberValue = sharedPref.getInt(
+            getString(R.string.saved_minimum),
+            DEFAULT_MIN_NUMBER
+        )
+        val maxNumberValue = sharedPref.getInt(
+            getString(R.string.saved_maximum),
+            DEFAULT_MAX_NUMBER
+        )
+
+        return RandomRange(minNumberValue, maxNumberValue)
     }
 
     private fun getGeneratedNumber(): String {
