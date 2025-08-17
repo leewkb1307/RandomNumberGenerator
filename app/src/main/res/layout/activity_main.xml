@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:importantForAccessibility="no"
                 android:text="@string/minimum"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="italic" />
 
             <EditText
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:importantForAccessibility="no"
                 android:text="@string/maximum"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="italic" />
 
             <EditText
@@ -86,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical">
 
                 <ImageButton
@@ -121,6 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/generated"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="italic" />
 
             <LinearLayout
@@ -143,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:orientation="vertical">
 
                     <ImageButton
