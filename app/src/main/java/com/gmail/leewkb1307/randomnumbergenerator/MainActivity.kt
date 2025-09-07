@@ -47,6 +47,17 @@ class MainActivity : AppCompatActivity() {
         generateRandom()
     }
 
+    private fun getRngNextInt(minVal: Int, maxVal: Int): Int {
+        return when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM -> {
+                rng.nextInt(minVal, maxVal + 1)
+            }
+            else -> {
+                minVal + rng.nextInt(maxVal - minVal + 1)
+            }
+        }
+    }
+
     private fun generateRandom() {
         var randInt = -1
         val minNumberInput: EditText = findViewById(R.id.editNumberMin)
@@ -64,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             } else if (minNumberValue >= maxNumberValue) {
                 errorDialog(R.string.bad_range)
             } else {
-                randInt = minNumberValue + rng.nextInt(maxNumberValue - minNumberValue + 1)
+                randInt = getRngNextInt(minNumberValue,  maxNumberValue)
 
                 val sharedPref = getSharedPref()
                 val randRange = getRandomRangePref(sharedPref)
