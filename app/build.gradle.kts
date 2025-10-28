@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.gmail.leewkb1307.randomnumbergenerator"
-        minSdk = 26
+        minSdk = 21
         targetSdk = 35
         versionCode = 1000000
         versionName = "1.0.0"
