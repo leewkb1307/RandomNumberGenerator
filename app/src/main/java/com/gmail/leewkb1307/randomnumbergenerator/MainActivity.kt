@@ -20,7 +20,11 @@ import androidx.core.view.WindowInsetsCompat
 import java.security.SecureRandom
 
 class MainActivity : AppCompatActivity() {
-    private val rng = SecureRandom.getInstanceStrong()
+    private val rng = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        SecureRandom.getInstanceStrong()
+    } else {
+        SecureRandom()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
